@@ -1,3 +1,4 @@
+"F3 is used in OSX
 nmap <F3> :call O()<CR>
 func O()
 	exec "w"
