@@ -21,7 +21,7 @@ nmap <F6> :call C()<CR>
 func C()
 	exec "wa"
 	if &filetype == 'c'
-		exec "!gcc % -o %< -Wall -O2 && ./%<"
+		exec "!gcc % -o %< -Wall -O2"
 	elseif &filetype == 'cpp'
 		exec "!g++ % -o %< -Wall -std=c++17 -O2"
 	elseif &filetype == 'java'
