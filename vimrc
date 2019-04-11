@@ -9,9 +9,9 @@ nmap <F5> :call A()<CR>
 func A()
 	exec "wa"
 	if &filetype == 'c'
-		exec "!gcc % -o %< -Wall -O2 && ./%<"
+		exec "!gcc % -o %<.out -Wall -O2 && ./%<.out"
 	elseif &filetype == 'cpp'
-		exec "!g++ % -o %< -Wall -O2 -std=c++17 && ./%<"
+		exec "!g++ % -o %<.out -Wall -O2 -std=c++17 && ./%<.out"
 	elseif &filetype == 'java'
 		exec "!javac % && java %<"
 	endif
@@ -21,9 +21,9 @@ nmap <F6> :call C()<CR>
 func C()
 	exec "wa"
 	if &filetype == 'c'
-		exec "!gcc % -o %< -Wall -O2"
+		exec "!gcc % -o %<.out -Wall -O2"
 	elseif &filetype == 'cpp'
-		exec "!g++ % -o %< -Wall -std=c++17 -O2"
+		exec "!g++ % -o %<.out -Wall -std=c++17 -O2"
 	elseif &filetype == 'java'
 		exec "!javac %"
 	endif
@@ -32,7 +32,7 @@ endfunc
 nmap <F7> :call R()<CR>
 func R()
 	if &filetype == 'c' || &filetype == 'cpp'
-		exec "!./%<"
+		exec "!./%<.out"
 	elseif &filetype == 'java'
 		exec "!java %<"
 	endif
