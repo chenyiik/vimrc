@@ -49,3 +49,4 @@ set cursorline
 
 syntax on
 colorscheme molokai
+
