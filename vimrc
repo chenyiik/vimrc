@@ -19,20 +19,6 @@ func A()
 	endif
 endfunc
 
-nmap <F1> :call D()<CR>
-func D()
-	exec "wa"
-	if &filetype == 'c'
-		exec "!mkdir cmake 2>/dev/null; gcc % -o cmake/%< -Wall -O2 -D_D && cmake/%<"
-	elseif &filetype == 'cpp'
-		exec "!mkdir cmake 2>/dev/null; g++ % -o cmake/%< -Wall -O2 -std=c++17 -D_D && cmake/%<"
-	elseif &filetype == 'java'
-		exec "!javac % && java %<"
-	elseif &filetype == 'python'
-		exec "!python3 %"
-	endif
-endfunc
-
 nmap <F6> :call C()<CR>
 func C()
 	exec "wa"
