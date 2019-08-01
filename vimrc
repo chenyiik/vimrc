@@ -1,4 +1,26 @@
 "F3 is used in OSX
+autocmd BufNewFile *.cc call ICC()
+func ICC()
+	let x = 0
+	call setline(x + 1, "#include <cstdio>")
+	call setline(x + 2, "#include <cstring>")
+	call setline(x + 3, "#include <iostream>")
+	call setline(x + 4, "#include <algorithm>")
+	call setline(x + 5, "")
+	call setline(x + 6, "using namespace std;")
+	call setline(x + 7, "")
+	call setline(x + 8, "int main()")
+	call setline(x + 9, "{")
+	call setline(x + 10, "	return 0;")
+	call setline(x + 11, "}")
+endfunc
+
+autocmd BufNewFile *.url call IURL()
+func IURL()
+	call setline(1, "[InternetShortcut]")
+	call setline(2, "URL=")
+endfunc
+
 nmap <F3> :call O()<CR>
 func O()
 	exec "w"
@@ -16,6 +38,8 @@ func A()
 		exec "!javac % && java %<"
 	elseif &filetype == 'python'
 		exec "!python3 %"
+	elseif &filetype == 'sh'
+		exec "!./%"
 	endif
 endfunc
 
@@ -39,6 +63,8 @@ func R()
 		exec "!java %<"
 	elseif &filetype == 'python'
 		exec "!python3 %"
+	elseif &filetype == 'sh'
+		exec "!./%"
 	endif
 endfunc
 
