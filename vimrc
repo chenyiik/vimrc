@@ -24,7 +24,7 @@ endfunc
 nmap <F3> :call O()<CR>
 func O()
 	exec "w"
-	exec "!open % &"
+	exec "!open -e % &"
 endfunc
 
 nmap <F5> :call A()<CR>
