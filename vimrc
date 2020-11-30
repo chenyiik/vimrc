@@ -31,9 +31,9 @@ nmap <F5> :call A()<CR>
 func A()
 	exec "wa"
 	if &filetype == 'c'
-		exec "!mkdir cmake 2>/dev/null; gcc % -o cmake/%< -Wall -O2 && cmake/%<"
+		exec "!mkdir -p .cmake; gcc % -o .cmake/%< -Wall -O2 && .cmake/%<"
 	elseif &filetype == 'cpp'
-		exec "!mkdir cmake 2>/dev/null; g++ % -o cmake/%< -Wall -O2 -std=c++17 && cmake/%<"
+		exec "!mkdir -p .cmake; g++ % -o .cmake/%< -Wall -O2 -std=c++17 && .cmake/%<"
 	elseif &filetype == 'java'
 		exec "!javac % && java %<"
 	elseif &filetype == 'python'
@@ -47,9 +47,9 @@ nmap <F6> :call C()<CR>
 func C()
 	exec "wa"
 	if &filetype == 'c'
-		exec "!mkdir cmake 2>/dev/null; gcc % -o cmake/%< -Wall -O2"
+		exec "!mkdir -p .cmake; gcc % -o .cmake/%< -Wall -O2"
 	elseif &filetype == 'cpp'
-		exec "!mkdir cmake 2>/dev/null; g++ % -o cmake/%< -Wall -std=c++17 -O2"
+		exec "!mkdir -p .cmake; g++ % -o .cmake/%< -Wall -std=c++17 -O2"
 	elseif &filetype == 'java'
 		exec "!javac %"
 	endif
@@ -58,7 +58,7 @@ endfunc
 nmap <F7> :call R()<CR>
 func R()
 	if &filetype == 'c' || &filetype == 'cpp'
-		exec "!cmake/%<"
+		exec "!.cmake/%<"
 	elseif &filetype == 'java'
 		exec "!java %<"
 	elseif &filetype == 'python'
