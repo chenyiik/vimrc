@@ -3,5 +3,5 @@
 cd -P $(dirname $0)
 
 mkdir -p $HOME/.vim/colors
-mv molokai.vim $HOME/.vim/colors
-mv vimrc $HOME/.vimrc
+cp molokai.vim $HOME/.vim/colors
+cp vimrc $HOME/.vimrc
