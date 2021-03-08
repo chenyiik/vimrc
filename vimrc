@@ -82,3 +82,4 @@ set cursorline
 syntax on
 colorscheme molokai
 
+autocmd FileType yaml set ai ts=2 sw=2 et
