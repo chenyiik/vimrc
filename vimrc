@@ -70,10 +70,10 @@ endfunc
 
 nmap 0 ^
 
-set autoindent
-set cindent
-set tabstop=4
-set shiftwidth=4
+"set autoindent
+"set cindent
+"set tabstop=4
+"set shiftwidth=4
 
 set nu
 set ruler
@@ -82,4 +82,9 @@ set cursorline
 syntax on
 colorscheme molokai
 
+autocmd FileType c set ai cin ts=4 sw=4
+autocmd FileType cpp set ai cin ts=4 sw=4
 autocmd FileType yaml set ai ts=2 sw=2 et
+autocmd FileType python set ai ts=2 sw=2 et
+autocmd FileType sh set ai ts=4 sw=4
+autocmd FileType go set ai ts=4 sw=4
