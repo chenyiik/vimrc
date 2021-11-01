@@ -1,18 +1,29 @@
 "F3 is used in OSX
 autocmd BufNewFile *.cc call ICC()
 func ICC()
-	let x = 0
-	call setline(x + 1, "#include <cstdio>")
-	call setline(x + 2, "#include <cstring>")
-	call setline(x + 3, "#include <iostream>")
-	call setline(x + 4, "#include <algorithm>")
-	call setline(x + 5, "")
-	call setline(x + 6, "using namespace std;")
-	call setline(x + 7, "")
-	call setline(x + 8, "int main()")
-	call setline(x + 9, "{")
-	call setline(x + 10, "	return 0;")
-	call setline(x + 11, "}")
+	call setline(1, "#include <cstdio>")
+	call setline(2, "#include <cstring>")
+	call setline(3, "#include <iostream>")
+	call setline(4, "#include <algorithm>")
+	call setline(5, "")
+	call setline(6, "using namespace std;")
+	call setline(7, "")
+	call setline(8, "int main()")
+	call setline(9, "{")
+	call setline(10, "	return 0;")
+	call setline(11, "}")
+endfunc
+
+autocmd BufNewFile *.go call IGO()
+func IGO()
+	call setline(1, "package main")
+	call setline(2, "")
+	call setline(3, "import (")
+	call setline(4, "	\"fmt\"")
+	call setline(5, ")")
+	call setline(6, "")
+	call setline(7, "func main() {")
+	call setline(8, "}")
 endfunc
 
 autocmd BufNewFile *.url call IURL()
@@ -40,6 +51,10 @@ func A()
 		exec "!python3 %"
 	elseif &filetype == 'sh'
 		exec "!./%"
+	elseif &filetype == 'rust'
+		exec "!cargo run"
+	elseif &filetype == 'go'
+		exec "!go run %"
 	endif
 endfunc
 
@@ -52,6 +67,8 @@ func C()
 		exec "!mkdir -p .cmake; g++ % -o .cmake/%< -Wall -std=c++17 -O2"
 	elseif &filetype == 'java'
 		exec "!javac %"
+	elseif &filetype == 'rust'
+		exec "!cargo build"
 	endif
 endfunc
 
@@ -65,6 +82,10 @@ func R()
 		exec "!python3 %"
 	elseif &filetype == 'sh'
 		exec "!./%"
+	elseif &filetype == 'rust'
+		exec "!cargo run"
+	elseif &filetype == 'go'
+		exec "!go run %"
 	endif
 endfunc
 
@@ -88,3 +109,5 @@ autocmd FileType yaml set ai ts=2 sw=2 et
 autocmd FileType python set ai ts=2 sw=2 et
 autocmd FileType sh set ai ts=4 sw=4
 autocmd FileType go set ai ts=4 sw=4
+autocmd FileType rust set ai cin ts=4 sw=4 et
+autocmd FileType dockerfile set ai cin ts=4 sw=4
