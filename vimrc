@@ -111,3 +111,7 @@ autocmd FileType sh set ai ts=4 sw=4
 autocmd FileType go set ai ts=4 sw=4
 autocmd FileType rust set ai cin ts=4 sw=4 et
 autocmd FileType dockerfile set ai cin ts=4 sw=4
+
+vnoremap <leader>ex :s/&/\r/g<cr>
+vnoremap <leader>en :!python -c 'import sys,urllib;print urllib.quote(sys.stdin.read().strip())'<cr>
+vnoremap <leader>de :!python -c 'import sys,urllib;print urllib.unquote(sys.stdin.read().strip())'<cr>
